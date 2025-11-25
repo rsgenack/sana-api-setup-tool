@@ -71,19 +71,36 @@ export default function Home() {
             <div className="text-2xl font-serif">Sana</div>
             <div className="flex items-center gap-6">
               <nav className="hidden md:flex items-center gap-6 text-sm">
-                <a href="#" className="hover:text-foreground/70 transition-colors">
+                <a
+                  href="https://sana.ai/products/agents"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-foreground/70 transition-colors"
+                >
                   Sana Agents
                 </a>
-                <a href="#" className="hover:text-foreground/70 transition-colors">
+                <a
+                  href="https://sana.ai/products/learning"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-foreground/70 transition-colors"
+                >
                   Sana Learn
                 </a>
-                <a href="#" className="hover:text-foreground/70 transition-colors">
+                <a
+                  href="https://sana.ai/integrations"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-foreground/70 transition-colors"
+                >
                   Integrations
                 </a>
               </nav>
-              <button className="px-4 py-2 bg-black text-white rounded-full text-sm font-medium hover:bg-black/90 transition-colors">
-                Sign in
-              </button>
+              <a href="https://app.sana.ai/login" target="_blank" rel="noopener noreferrer">
+                <button className="px-4 py-2 bg-black text-white rounded-full text-sm font-medium hover:bg-black/90 transition-colors">
+                  Sign in
+                </button>
+              </a>
             </div>
           </div>
         </div>
@@ -171,17 +188,32 @@ export default function Home() {
                 <h4 className="font-semibold mb-3">Sana Agents</h4>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li>
-                    <a href="#" className="hover:text-foreground transition-colors">
+                    <a
+                      href="https://sana.ai/products/agents"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-foreground transition-colors"
+                    >
                       Overview
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="hover:text-foreground transition-colors">
+                    <a
+                      href="https://sana.ai/solutions"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-foreground transition-colors"
+                    >
                       Solutions
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="hover:text-foreground transition-colors">
+                    <a
+                      href="https://sana.ai/integrations"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-foreground transition-colors"
+                    >
                       Integrations
                     </a>
                   </li>
@@ -191,17 +223,32 @@ export default function Home() {
                 <h4 className="font-semibold mb-3">Sana Learn</h4>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li>
-                    <a href="#" className="hover:text-foreground transition-colors">
+                    <a
+                      href="https://sana.ai/products/learning"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-foreground transition-colors"
+                    >
                       Overview
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="hover:text-foreground transition-colors">
+                    <a
+                      href="https://sana.ai/solutions"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-foreground transition-colors"
+                    >
                       Solutions
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="hover:text-foreground transition-colors">
+                    <a
+                      href="https://sana.ai/pricing"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-foreground transition-colors"
+                    >
                       Pricing
                     </a>
                   </li>
@@ -211,17 +258,32 @@ export default function Home() {
                 <h4 className="font-semibold mb-3">Company</h4>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li>
-                    <a href="#" className="hover:text-foreground transition-colors">
+                    <a
+                      href="https://sana.ai/about"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-foreground transition-colors"
+                    >
                       Mission
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="hover:text-foreground transition-colors">
+                    <a
+                      href="https://sana.ai/careers"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-foreground transition-colors"
+                    >
                       Careers
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="hover:text-foreground transition-colors">
+                    <a
+                      href="https://sana.ai/news"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-foreground transition-colors"
+                    >
                       Press
                     </a>
                   </li>
@@ -231,17 +293,32 @@ export default function Home() {
                 <h4 className="font-semibold mb-3">Legal</h4>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li>
-                    <a href="#" className="hover:text-foreground transition-colors">
+                    <a
+                      href="https://sana.ai/privacy"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-foreground transition-colors"
+                    >
                       Privacy
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="hover:text-foreground transition-colors">
+                    <a
+                      href="https://sana.ai/terms"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-foreground transition-colors"
+                    >
                       Terms
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="hover:text-foreground transition-colors">
+                    <a
+                      href="https://sana.ai/cookies"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-foreground transition-colors"
+                    >
                       Cookie settings
                     </a>
                   </li>
