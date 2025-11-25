@@ -525,10 +525,28 @@ export default function HubSpotToSana({ onBack, os }: HubSpotToSanaProps) {
               <h4 className="font-semibold mb-3 text-[#7C3AED]">What To Do (In Sana)</h4>
               <ol className="list-decimal list-inside space-y-2 text-sm">
                 <li>
-                  Log into <strong>Sana</strong> with admin rights
+                  Log into{" "}
+                  <a
+                    href="https://sana.ai"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#7C3AED] hover:underline font-medium"
+                  >
+                    Sana
+                  </a>{" "}
+                  with admin rights
                 </li>
                 <li>
-                  Once logged in, go to <strong>Settings</strong>
+                  Once logged in, go to <strong>Settings</strong> (or{" "}
+                  <a
+                    href="https://help.sana.ai/en/articles/96582-customizing-your-sana-domain"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#7C3AED] hover:underline"
+                  >
+                    Manage → Settings
+                  </a>
+                  )
                 </li>
                 <li>
                   Find and click <strong>API</strong> (or "Manage API" or "API Clients")
@@ -981,7 +999,7 @@ print(sana_response.json())`,
             />
 
             <div className="bg-muted/50 border border-border rounded-lg p-4">
-              <h4 className="font-semibold mb-2">How to Use It</h4>
+              <h4 className="font-semibold mb-3">How to Use It</h4>
               <ol className="list-decimal list-inside space-y-1 text-sm">
                 <li>Copy the Python script above</li>
                 <li>

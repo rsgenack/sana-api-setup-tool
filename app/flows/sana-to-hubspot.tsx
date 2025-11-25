@@ -361,9 +361,33 @@ export default function SanaToHubSpot({ onBack, os }: SanaToHubSpotProps) {
                 What To Do (In Sana)
               </h4>
               <ol className="list-decimal list-inside space-y-2 text-sm">
-                <li>Log into Sana with admin rights</li>
-                <li>Go to Settings</li>
-                <li>Find and click API (or "Manage API" or "API Clients")</li>
+                <li>
+                  Log into{" "}
+                  <a
+                    href="https://sana.ai"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#7C3AED] hover:underline font-medium"
+                  >
+                    Sana
+                  </a>{" "}
+                  with admin rights
+                </li>
+                <li>
+                  Once logged in, go to <strong>Settings</strong> (or{" "}
+                  <a
+                    href="https://help.sana.ai/en/articles/96582-customizing-your-sana-domain"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#7C3AED] hover:underline"
+                  >
+                    Manage → Settings
+                  </a>
+                  )
+                </li>
+                <li>
+                  Find and click <strong>API</strong> (or "Manage API" or "API Clients")
+                </li>
                 <li>Click Create New API Client or New Client button</li>
                 <li>Fill in Client Name: "HubSpot Export" (or whatever you want to call it)</li>
                 <li>Description: "Export user data to HubSpot"</li>
@@ -416,6 +440,29 @@ export default function SanaToHubSpot({ onBack, os }: SanaToHubSpotProps) {
                   <p className="text-xs text-muted-foreground mt-1">🔒 Stored locally and never sent anywhere</p>
                 </div>
               </div>
+            </div>
+            <div className="mt-6 p-4 bg-muted/50 border border-border rounded-lg">
+              <p className="text-sm text-muted-foreground">
+                Need help? Check the{" "}
+                <a
+                  href="https://sana.ai/api-docs/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#7C3AED] hover:underline font-medium"
+                >
+                  Sana API documentation
+                </a>{" "}
+                or{" "}
+                <a
+                  href="https://help.sana.ai/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#7C3AED] hover:underline font-medium"
+                >
+                  Sana Help Center
+                </a>
+                .
+              </p>
             </div>
           </div>
         </StepCard>

@@ -101,12 +101,32 @@ export default function SanaToZendesk({ onBack, os }: { onBack: () => void; os: 
                 your Sana data.
               </p>
 
-              <div className="bg-muted/50 p-4 rounded-lg space-y-3">
-                <h4 className="font-semibold">What To Do (In Sana)</h4>
+              <div className="bg-[#7C3AED]/10 border border-[#7C3AED]/30 rounded-lg p-4">
+                <h4 className="font-semibold mb-3 text-[#7C3AED]">Instructions</h4>
                 <ol className="list-decimal list-inside space-y-2 text-sm">
-                  <li>Log into Sana with admin rights</li>
                   <li>
-                    Go to <strong>Settings</strong>
+                    Log into{" "}
+                    <a
+                      href="https://sana.ai"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#7C3AED] hover:underline font-medium"
+                    >
+                      Sana
+                    </a>{" "}
+                    with admin rights
+                  </li>
+                  <li>
+                    Once logged in, go to <strong>Settings</strong> (or{" "}
+                    <a
+                      href="https://help.sana.ai/en/articles/96582-customizing-your-sana-domain"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#7C3AED] hover:underline"
+                    >
+                      Manage → Settings
+                    </a>
+                    )
                   </li>
                   <li>
                     Find and click <strong>API</strong> (or "Manage API" or "API Clients")
