@@ -7,46 +7,109 @@ import HubspotToSana from "./flows/hubspot-to-sana"
 import SanaToHubspot from "./flows/sana-to-hubspot"
 import ZendeskToSana from "./flows/zendesk-to-sana"
 import SanaToZendesk from "./flows/sana-to-zendesk"
+import NotionToSana from "./flows/notion-to-sana"
+import SharepointToSana from "./flows/sharepoint-to-sana"
+import OutlookToSana from "./flows/outlook-to-sana"
+import AirtableToSana from "./flows/airtable-to-sana"
 
 type OS = "mac" | "windows" | "linux"
-type IntegrationType = "hubspot-to-sana" | "sana-to-hubspot" | "zendesk-to-sana" | "sana-to-zendesk"
+type IntegrationType =
+  | "hubspot-to-sana"
+  | "sana-to-hubspot"
+  | "zendesk-to-sana"
+  | "sana-to-zendesk"
+  | "notion-to-sana"
+  | "sharepoint-to-sana"
+  | "outlook-to-sana"
+  | "airtable-to-sana"
 
 export default function Home() {
   const [selectedFlow, setSelectedFlow] = useState<IntegrationType | null>(null)
   const [selectedOS, setSelectedOS] = useState<OS>("mac")
 
-  const flows = [
+  const customApiFlows = [
     {
       id: "hubspot-to-sana" as IntegrationType,
       title: "HubSpot → Sana",
       description: "Sync contacts, companies, and deals from HubSpot to Sana",
-      bgColor: "bg-[oklch(0.12_0_0)]",
-      textColor: "text-white",
-      accentColor: "bg-[oklch(0.85_0.15_120)]",
+      bgColor: "bg-white",
+      textColor: "text-black",
+      accentColor: "bg-[#8B5CF6]",
+      buttonTextColor: "text-white",
+      borderColor: "border-border",
     },
     {
       id: "sana-to-hubspot" as IntegrationType,
       title: "Sana → HubSpot",
       description: "Push learning data and user progress from Sana to HubSpot",
-      bgColor: "bg-[oklch(0.96_0_0)]",
+      bgColor: "bg-white",
       textColor: "text-black",
-      accentColor: "bg-[oklch(0.55_0.2_270)]",
+      accentColor: "bg-[#F57722]",
+      buttonTextColor: "text-white",
+      borderColor: "border-border",
     },
     {
       id: "zendesk-to-sana" as IntegrationType,
       title: "Zendesk → Sana",
       description: "Import support tickets and agent data from Zendesk to Sana",
-      bgColor: "bg-[oklch(0.12_0_0)]",
-      textColor: "text-white",
-      accentColor: "bg-[oklch(0.85_0.15_120)]",
+      bgColor: "bg-white",
+      textColor: "text-black",
+      accentColor: "bg-[#8B5CF6]",
+      buttonTextColor: "text-white",
+      borderColor: "border-border",
     },
     {
       id: "sana-to-zendesk" as IntegrationType,
       title: "Sana → Zendesk",
       description: "Export training completion and user knowledge to Zendesk",
-      bgColor: "bg-[oklch(0.96_0_0)]",
+      bgColor: "bg-white",
       textColor: "text-black",
-      accentColor: "bg-[oklch(0.55_0.2_270)]",
+      accentColor: "bg-[#03363d]",
+      buttonTextColor: "text-white",
+      borderColor: "border-border",
+    },
+  ]
+
+  const nativeIntegrations = [
+    {
+      id: "notion-to-sana" as IntegrationType,
+      title: "Notion",
+      description: "Search and access your Notion workspace content from Sana",
+      bgColor: "bg-white",
+      textColor: "text-black",
+      accentColor: "bg-black",
+      buttonTextColor: "text-white",
+      borderColor: "border-border",
+    },
+    {
+      id: "sharepoint-to-sana" as IntegrationType,
+      title: "SharePoint",
+      description: "Connect SharePoint document libraries and sites to Sana",
+      bgColor: "bg-white",
+      textColor: "text-black",
+      accentColor: "bg-[#0078D4]",
+      buttonTextColor: "text-white",
+      borderColor: "border-border",
+    },
+    {
+      id: "outlook-to-sana" as IntegrationType,
+      title: "Outlook Calendar",
+      description: "View and reference calendar events directly in Sana",
+      bgColor: "bg-white",
+      textColor: "text-black",
+      accentColor: "bg-[#0072C6]",
+      buttonTextColor: "text-white",
+      borderColor: "border-border",
+    },
+    {
+      id: "airtable-to-sana" as IntegrationType,
+      title: "Airtable",
+      description: "Access Airtable bases and records within Sana search",
+      bgColor: "bg-white",
+      textColor: "text-black",
+      accentColor: "bg-[#FCB400]",
+      buttonTextColor: "text-black",
+      borderColor: "border-border",
     },
   ]
 
@@ -61,6 +124,18 @@ export default function Home() {
   }
   if (selectedFlow === "sana-to-zendesk") {
     return <SanaToZendesk onBack={() => setSelectedFlow(null)} os={selectedOS} />
+  }
+  if (selectedFlow === "notion-to-sana") {
+    return <NotionToSana onBack={() => setSelectedFlow(null)} />
+  }
+  if (selectedFlow === "sharepoint-to-sana") {
+    return <SharepointToSana onBack={() => setSelectedFlow(null)} />
+  }
+  if (selectedFlow === "outlook-to-sana") {
+    return <OutlookToSana onBack={() => setSelectedFlow(null)} />
+  }
+  if (selectedFlow === "airtable-to-sana") {
+    return <AirtableToSana onBack={() => setSelectedFlow(null)} />
   }
 
   return (
@@ -145,27 +220,61 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="container mx-auto px-6 pb-12">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-sm uppercase tracking-wider text-muted-foreground mb-8">Native integrations</h2>
+
+          <div className="grid gap-6 md:grid-cols-3 lg:grid-cols-4">
+            {nativeIntegrations.map((integration) => (
+              <Card
+                key={integration.id}
+                className={`group relative overflow-hidden ${integration.bgColor} ${integration.textColor} ${integration.borderColor} border rounded-3xl hover:scale-[1.02] transition-all duration-300 cursor-pointer p-8 min-h-[340px] flex flex-col justify-between`}
+                onClick={() => setSelectedFlow(integration.id)}
+              >
+                <div className="flex flex-col h-full justify-between">
+                  <div>
+                    <h3 className="text-2xl font-semibold mb-3">{integration.title}</h3>
+                    <p className="text-sm opacity-70">{integration.description}</p>
+                  </div>
+
+                  <div className="flex items-center gap-4 mt-8">
+                    <button
+                      className={`px-4 py-2 ${integration.accentColor} ${integration.buttonTextColor} rounded-full text-sm font-medium hover:opacity-90 transition-opacity`}
+                    >
+                      Connect
+                    </button>
+                  </div>
+                </div>
+
+                <ArrowRight className="absolute top-8 right-8 w-5 h-5 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="container mx-auto px-6 pb-20">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-sm uppercase tracking-wider text-muted-foreground mb-8">Our integrations</h2>
-          <div className="grid gap-6 md:grid-cols-2">
-            {flows.map((flow) => (
+          <h2 className="text-sm uppercase tracking-wider text-muted-foreground mb-8">Custom API integrations</h2>
+
+          <div className="grid gap-6 md:grid-cols-3 lg:grid-cols-4">
+            {customApiFlows.map((flow) => (
               <Card
                 key={flow.id}
-                className={`group relative overflow-hidden ${flow.bgColor} ${flow.textColor} border-0 rounded-3xl hover:scale-[1.02] transition-all duration-300 cursor-pointer p-8 min-h-[300px] flex flex-col justify-between`}
+                className={`group relative overflow-hidden ${flow.bgColor} ${flow.textColor} ${flow.borderColor || "border-0"} border rounded-3xl hover:scale-[1.02] transition-all duration-300 cursor-pointer p-8 min-h-[340px] flex flex-col justify-between`}
                 onClick={() => setSelectedFlow(flow.id)}
               >
                 <div className="flex flex-col h-full justify-between">
                   <div>
                     <h3 className="text-2xl font-semibold mb-3">{flow.title}</h3>
-                    <p className={`text-sm ${flow.textColor === "text-white" ? "text-white/70" : "text-black/70"}`}>
+                    <p className={`text-sm ${flow.bgColor === "bg-white" ? "opacity-70" : "opacity-80"}`}>
                       {flow.description}
                     </p>
                   </div>
 
                   <div className="flex items-center gap-4 mt-8">
                     <button
-                      className={`px-4 py-2 ${flow.accentColor} text-black rounded-full text-sm font-medium hover:opacity-90 transition-opacity`}
+                      className={`px-4 py-2 ${flow.accentColor} ${flow.buttonTextColor || "text-black"} rounded-full text-sm font-medium hover:opacity-90 transition-opacity`}
                     >
                       Get started
                     </button>
