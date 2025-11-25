@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Card } from "@/components/ui/card"
 import { ArrowRight, Monitor, Apple } from "lucide-react"
 import HubspotToSana from "./flows/hubspot-to-sana"
@@ -26,6 +26,10 @@ type IntegrationType =
 export default function Home() {
   const [selectedFlow, setSelectedFlow] = useState<IntegrationType | null>(null)
   const [selectedOS, setSelectedOS] = useState<OS>("mac")
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" })
+  }, [selectedFlow])
 
   const customApiFlows = [
     {
