@@ -1,0 +1,268 @@
+"use client"
+
+import { useState } from "react"
+import { Card } from "@/components/ui/card"
+import { ArrowRight, Monitor, Apple } from "lucide-react"
+import HubspotToSana from "./flows/hubspot-to-sana"
+import SanaToHubspot from "./flows/sana-to-hubspot"
+import ZendeskToSana from "./flows/zendesk-to-sana"
+import SanaToZendesk from "./flows/sana-to-zendesk"
+
+type OS = "mac" | "windows" | "linux"
+type IntegrationType = "hubspot-to-sana" | "sana-to-hubspot" | "zendesk-to-sana" | "sana-to-zendesk"
+
+export default function Home() {
+  const [selectedFlow, setSelectedFlow] = useState<IntegrationType | null>(null)
+  const [selectedOS, setSelectedOS] = useState<OS>("mac")
+
+  const flows = [
+    {
+      id: "hubspot-to-sana" as IntegrationType,
+      title: "HubSpot → Sana",
+      description: "Sync contacts, companies, and deals from HubSpot to Sana",
+      bgColor: "bg-[oklch(0.12_0_0)]",
+      textColor: "text-white",
+      accentColor: "bg-[oklch(0.85_0.15_120)]",
+    },
+    {
+      id: "sana-to-hubspot" as IntegrationType,
+      title: "Sana → HubSpot",
+      description: "Push learning data and user progress from Sana to HubSpot",
+      bgColor: "bg-[oklch(0.96_0_0)]",
+      textColor: "text-black",
+      accentColor: "bg-[oklch(0.55_0.2_270)]",
+    },
+    {
+      id: "zendesk-to-sana" as IntegrationType,
+      title: "Zendesk → Sana",
+      description: "Import support tickets and agent data from Zendesk to Sana",
+      bgColor: "bg-[oklch(0.12_0_0)]",
+      textColor: "text-white",
+      accentColor: "bg-[oklch(0.85_0.15_120)]",
+    },
+    {
+      id: "sana-to-zendesk" as IntegrationType,
+      title: "Sana → Zendesk",
+      description: "Export training completion and user knowledge to Zendesk",
+      bgColor: "bg-[oklch(0.96_0_0)]",
+      textColor: "text-black",
+      accentColor: "bg-[oklch(0.55_0.2_270)]",
+    },
+  ]
+
+  if (selectedFlow === "hubspot-to-sana") {
+    return <HubspotToSana onBack={() => setSelectedFlow(null)} os={selectedOS} />
+  }
+  if (selectedFlow === "sana-to-hubspot") {
+    return <SanaToHubspot onBack={() => setSelectedFlow(null)} os={selectedOS} />
+  }
+  if (selectedFlow === "zendesk-to-sana") {
+    return <ZendeskToSana onBack={() => setSelectedFlow(null)} os={selectedOS} />
+  }
+  if (selectedFlow === "sana-to-zendesk") {
+    return <SanaToZendesk onBack={() => setSelectedFlow(null)} os={selectedOS} />
+  }
+
+  return (
+    <div className="min-h-screen bg-white">
+      <header className="border-b border-border">
+        <div className="container mx-auto px-6 py-6">
+          <div className="flex items-center justify-between max-w-7xl mx-auto">
+            <div className="text-2xl font-serif">Sana</div>
+            <div className="flex items-center gap-6">
+              <nav className="hidden md:flex items-center gap-6 text-sm">
+                <a href="#" className="hover:text-foreground/70 transition-colors">
+                  Sana Agents
+                </a>
+                <a href="#" className="hover:text-foreground/70 transition-colors">
+                  Sana Learn
+                </a>
+                <a href="#" className="hover:text-foreground/70 transition-colors">
+                  Integrations
+                </a>
+              </nav>
+              <button className="px-4 py-2 bg-black text-white rounded-full text-sm font-medium hover:bg-black/90 transition-colors">
+                Sign in
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section className="container mx-auto px-6 py-20">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-6xl md:text-7xl font-serif tracking-tight mb-6 text-balance">API integration setup</h1>
+          <p className="text-xl text-muted-foreground mb-12 text-pretty">
+            Connect your platforms to Sana with our step-by-step integration guides
+          </p>
+
+          <div className="inline-flex items-center gap-1 p-1 bg-muted rounded-2xl">
+            <button
+              onClick={() => setSelectedOS("mac")}
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl transition-all ${
+                selectedOS === "mac" ? "bg-white shadow-sm" : "hover:bg-white/50"
+              }`}
+            >
+              <Apple className="w-4 h-4" />
+              <span className="font-medium text-sm">Mac</span>
+            </button>
+            <button
+              onClick={() => setSelectedOS("windows")}
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl transition-all ${
+                selectedOS === "windows" ? "bg-white shadow-sm" : "hover:bg-white/50"
+              }`}
+            >
+              <Monitor className="w-4 h-4" />
+              <span className="font-medium text-sm">Windows</span>
+            </button>
+            <button
+              onClick={() => setSelectedOS("linux")}
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl transition-all ${
+                selectedOS === "linux" ? "bg-white shadow-sm" : "hover:bg-white/50"
+              }`}
+            >
+              <Monitor className="w-4 h-4" />
+              <span className="font-medium text-sm">Linux</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section className="container mx-auto px-6 pb-20">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-sm uppercase tracking-wider text-muted-foreground mb-8">Our integrations</h2>
+          <div className="grid gap-6 md:grid-cols-2">
+            {flows.map((flow) => (
+              <Card
+                key={flow.id}
+                className={`group relative overflow-hidden ${flow.bgColor} ${flow.textColor} border-0 rounded-3xl hover:scale-[1.02] transition-all duration-300 cursor-pointer p-8 min-h-[300px] flex flex-col justify-between`}
+                onClick={() => setSelectedFlow(flow.id)}
+              >
+                <div className="flex flex-col h-full justify-between">
+                  <div>
+                    <h3 className="text-2xl font-semibold mb-3">{flow.title}</h3>
+                    <p className={`text-sm ${flow.textColor === "text-white" ? "text-white/70" : "text-black/70"}`}>
+                      {flow.description}
+                    </p>
+                  </div>
+
+                  <div className="flex items-center gap-4 mt-8">
+                    <button
+                      className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                        flow.textColor === "text-white"
+                          ? "bg-white text-black hover:bg-white/90"
+                          : "bg-black text-white hover:bg-black/90"
+                      }`}
+                    >
+                      Explore
+                    </button>
+                    <button
+                      className={`px-4 py-2 ${flow.accentColor} text-black rounded-full text-sm font-medium hover:opacity-90 transition-opacity`}
+                    >
+                      Get started
+                    </button>
+                  </div>
+                </div>
+
+                <ArrowRight className="absolute top-8 right-8 w-5 h-5 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <footer className="border-t border-border py-12">
+        <div className="container mx-auto px-6">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8">
+            <div className="text-2xl font-serif">Sana</div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              <div>
+                <h4 className="font-semibold mb-3">Sana Agents</h4>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li>
+                    <a href="#" className="hover:text-foreground transition-colors">
+                      Overview
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="hover:text-foreground transition-colors">
+                      Solutions
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="hover:text-foreground transition-colors">
+                      Integrations
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-3">Sana Learn</h4>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li>
+                    <a href="#" className="hover:text-foreground transition-colors">
+                      Overview
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="hover:text-foreground transition-colors">
+                      Solutions
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="hover:text-foreground transition-colors">
+                      Pricing
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-3">Company</h4>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li>
+                    <a href="#" className="hover:text-foreground transition-colors">
+                      Mission
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="hover:text-foreground transition-colors">
+                      Careers
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="hover:text-foreground transition-colors">
+                      Press
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-3">Legal</h4>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li>
+                    <a href="#" className="hover:text-foreground transition-colors">
+                      Privacy
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="hover:text-foreground transition-colors">
+                      Terms
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="hover:text-foreground transition-colors">
+                      Cookie settings
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-border text-sm text-muted-foreground">
+            Sana Labs © 2025
+          </div>
+        </div>
+      </footer>
+    </div>
+  )
+}
