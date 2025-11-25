@@ -174,6 +174,9 @@ export default function Home() {
                 >
                   Integrations
                 </a>
+                <a href="/security" className="hover:text-foreground/70 transition-colors">
+                  Security
+                </a>
               </nav>
               <a href="https://app.sana.ai/login" target="_blank" rel="noopener noreferrer">
                 <button className="px-4 py-2 bg-black text-white rounded-full text-sm font-medium hover:bg-black/90 transition-colors">
@@ -405,6 +408,11 @@ export default function Home() {
               <div>
                 <h4 className="font-semibold mb-3">Legal</h4>
                 <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li>
+                    <a href="/security" className="hover:text-foreground transition-colors">
+                      Security
+                    </a>
+                  </li>
                   <li>
                     <a
                       href="https://sana.ai/privacy"
