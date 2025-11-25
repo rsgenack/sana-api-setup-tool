@@ -148,15 +148,6 @@ export default function Home() {
 
                   <div className="flex items-center gap-4 mt-8">
                     <button
-                      className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                        flow.textColor === "text-white"
-                          ? "bg-white text-black hover:bg-white/90"
-                          : "bg-black text-white hover:bg-black/90"
-                      }`}
-                    >
-                      Explore
-                    </button>
-                    <button
                       className={`px-4 py-2 ${flow.accentColor} text-black rounded-full text-sm font-medium hover:opacity-90 transition-opacity`}
                     >
                       Get started
