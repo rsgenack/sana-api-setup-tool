@@ -8,9 +8,9 @@ const newsreader = Newsreader({ subsets: ["latin"], variable: "--font-serif" })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "API Integration Setup | Sana",
-  description: "Connect your platforms with Sana's API integration guides",
-    generator: 'v0.app'
+  title: "Google API Hub | Integration Guides & Setup",
+  description: "Comprehensive guides for integrating Google Workspace, Analytics, and Cloud Platform APIs",
+  generator: "v0.app",
 }
 
 export default function RootLayout({

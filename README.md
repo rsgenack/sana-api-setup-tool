@@ -1,30 +1,63 @@
-# API setup tool
+# Google API Setup Tool
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+*Step-by-step integration guides for Google Workspace and Cloud APIs*
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/rsgenacks-projects/v0-api-setup-tool)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/oDa6oAz6Ele)
+[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/)
+[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/)
 
 ## Overview
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+This tool provides comprehensive, step-by-step guides for integrating various Google APIs into your applications. Each integration includes detailed instructions for OAuth 2.0 setup, API enablement, and sample code.
 
-## Deployment
+## Supported APIs
 
-Your project is live at:
+### Core APIs
+- **Google Drive** - Access and manage files in Google Drive
+- **Gmail** - Read, send, and manage email messages
+- **Google Calendar** - Create and manage calendar events
+- **Google Sheets** - Read and write spreadsheet data
 
-**[https://vercel.com/rsgenacks-projects/v0-api-setup-tool](https://vercel.com/rsgenacks-projects/v0-api-setup-tool)**
+### Productivity APIs
+- **Google Docs** - Create and edit documents programmatically
+- **Google Meet** - Create and manage video conferences
+- **Google Workspace Admin** - Manage users and organization settings
+- **Google Contacts** - Access and manage contact information
 
-## Build your app
+## Getting Started
 
-Continue building your app on:
+1. Visit the application
+2. Select the Google API you want to integrate
+3. Follow the step-by-step guide
+4. Copy and run the provided code samples
 
-**[https://v0.app/chat/oDa6oAz6Ele](https://v0.app/chat/oDa6oAz6Ele)**
+## Prerequisites
 
-## How It Works
+- A Google account
+- Google Cloud Console access
+- Python 3.7+ (for sample code)
+- Basic understanding of OAuth 2.0
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+## Features
+
+- Platform-specific instructions (Mac, Windows, Linux)
+- Complete OAuth 2.0 setup guides
+- Ready-to-use code samples
+- Troubleshooting sections
+- Links to official documentation
+
+## Documentation
+
+For detailed information about each API, visit:
+- [Google Workspace APIs](https://developers.google.com/workspace)
+- [Google Cloud APIs](https://cloud.google.com/apis)
+- [OAuth 2.0 Documentation](https://developers.google.com/identity/protocols/oauth2)
+
+## Support
+
+- [Google API Documentation](https://developers.google.com/)
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/google-api)
+- [Google Issue Tracker](https://issuetracker.google.com/)
+
+## License
+
+This tool is provided as-is for educational and development purposes.
